@@ -4,7 +4,7 @@ def o(t):
   def show(k, v):
     if str(k).find("^_") == -1:
       v = o(v)
-      return str.format(":%s %s", k, v) if len(t) == 0 else str(v)
+      return ":{0} {1}".format(k, v) if len(t) != 0 else str(v)
   
   u = []
   for k, v in t.items():
@@ -14,4 +14,5 @@ def o(t):
   return "{" + " ".join(u) + "}"
 
 def oo(t):
-  print(o(t))
+  disp = o(t)
+  print(disp)

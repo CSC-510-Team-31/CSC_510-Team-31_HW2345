@@ -3,7 +3,7 @@ import math
 
 class Sym:
   def __init__(self, c, s):
-    self.n = 0,
+    self.n = 0
     self.at = c or 0
     self.name = s or ""
     self._has = {}
@@ -12,7 +12,7 @@ class Sym:
     if v == "?":
       return
     self.n += 1
-    self._has[v] = 1 + (self._has[0] or 0)
+    self._has[v] = 1 + (self._has[v] if v in self._has else 0)
   
   def mid(self):
     most = -1
