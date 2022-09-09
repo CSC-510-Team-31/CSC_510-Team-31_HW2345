@@ -1,5 +1,5 @@
-import importlib
-import os
+from args import The
+from example import Example
 import sys
 # let's test modules import from the src folder
 sys.path.insert(1, "../src")
@@ -7,34 +7,15 @@ sys.path.insert(1, "src")
 
 
 def main():
-    files = os.listdir(os.path.dirname(os.path.realpath(__file__)))
-    modules = []
-    # Grabbing all the test files names
-    for i in files:
-        if i.startswith("test_") and i.endswith(".py") and i != "test_runner.py":
-            modules.append(i[:-3])
+    "Not fully working right now... will fix during HW4 so that it can be integrated into GitHub actions"
 
-    # Importing the testing classes
-    classes = []
-    for module in modules:
-        thing = importlib.import_module(module)
-        class_name = module.replace("_", " ").title().replace(" ", "")
-        classes.append(getattr(thing, class_name))
-
-    # Running the tests and recording results
-    failures = 0
-    successes = 0
-    for i_class in classes:
-        thing = i_class()
-        success, failure = thing.run_test()
-        failures += failure
-        successes += success
+    successes, failures, crashes = Example().run_examples(The().the)
 
     print("Ran a total of {} tests\033[92m {} success(es)\033[00m and\033[91m {} failure(s)\033[00m".format(
         successes + failures, successes, failures))
 
+    assert crashes == 0
     return failures
-
 
 if __name__ == '__main__':
     main()
