@@ -8,7 +8,7 @@ class Sym:
     self.name = s or ""
     self._has = {}
   
-  def add(self, v):
+  def add(self, v, nums = None):
     if v == "?":
       return
     self.n += 1

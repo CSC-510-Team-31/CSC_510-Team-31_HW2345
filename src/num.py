@@ -1,5 +1,5 @@
 import sys
-import math, random
+import random
 from constants import N_OPTION
 
 from sym import Sym

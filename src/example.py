@@ -1,7 +1,11 @@
 from random import Random
+import traceback
 from args import The
-from constants import E_OPTION, N_OPTION, SMALL_S_OPTION
+from constants import BIG_S_OPTION, E_OPTION, F_OPTION, N_OPTION, SMALL_S_OPTION
+from data import Data
+from fileutils import read_file
 from num import Num
+from parse import parser
 from print import oo
 from sym import Sym
 
@@ -26,7 +30,7 @@ class Example(object):
                 print("\033[92m {}\033[00m" .format("SUCCESS!!"))
                 successes += 1
             except Exception as e:
-                print(e.__class__)
+                traceback.print_exc()
                 if isinstance(e, AssertionError):
                     print("\033[91m {}\033[00m" .format("FAILED"))
                     failures += 1
@@ -68,6 +72,26 @@ class Example(object):
     def eg_the(self):
         self.params = The()
         oo(self.params.the)
+
+    def eg_csv(self):
+        csv_the = The().the
+        csv_the[F_OPTION] = "./data/auto93.csv"
+        n = 0
+        def inner_fun(row):
+            nonlocal n
+            n = n + 1
+            if n <= 10:
+                oo(row) 
+        parser(read_file(csv_the[F_OPTION]), inner_fun, csv_the[BIG_S_OPTION] )
+        assert True
+    
+    def eg_data(self):
+        data_the = The().the
+        data_the[F_OPTION] = "./data/auto93.csv"
+        d = Data(read_file(data_the[F_OPTION]), data_the[N_OPTION], data_the[BIG_S_OPTION])
+        for col in d.cols.y:
+            oo(col)
+        return True
 
 if __name__ == "__main__":
     testthe = The()

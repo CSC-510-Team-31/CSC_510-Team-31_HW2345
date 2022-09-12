@@ -1,31 +1,17 @@
 
 from print import oo
+from utils import coerce
 
 
-def parser(data):
-    col_header = []
+def parser(csv_string, fun, sep):
+  csv_lines = csv_string.split('\n')
+  for line in csv_lines:
+    t = []
+    for element in line.split(sep):
+      t.append(coerce(element))
+    fun(t)
+      
 
-    count = data.split("\n")
+    
 
-    pos = data.find('\n')
-    col_header = data[0:pos].split(",")
-
-    col_header_list = [[] for l in range(len(col_header))]
-
-    # Extracting data
-    data_split = data.split("\n")
-    j = 0
-    while j < len(col_header_list):
-      i = 1
-      while i < len(count):
-              col_header_list[j].append(data_split[i].split(",")[j])
-              i += 1
-      j+= 1
-
-    dicts = {}
-    p = 0
-    while p < len(col_header):
-        dicts[col_header[p]] = col_header_list[p]
-        p +=1
-
-    return dicts
+    
