@@ -1,17 +1,42 @@
-Running test_bignum
-[4.0, 14.0, 69.0, 97.0, 110.0, 128.0, 172.0, 175.0, 184.0, 208.0, 290.0, 365.0, 429.0, 433.0, 475.0, 480.0, 571.0, 629.0, 697.0, 716.0, 769.0, 802.0, 804.0, 828.0, 831.0, 835.0, 913.0, 951.0, 959.0, 969.0, 974.0, 980.0]
+Running eg_bignum
+[1.0, 7.0, 51.0, 69.0, 78.0, 161.0, 176.0, 201.0, 212.0, 259.0, 301.0, 306.0, 326.0, 342.0, 474.0, 603.0, 615.0, 616.0, 619.0, 640.0, 663.0, 727.0, 740.0, 794.0, 826.0, 827.0, 861.0, 871.0, 876.0, 891.0, 961.0, 1000.0]
  SUCCESS!!
 
-Running test_num
+Running eg_csv
+['Clndrs', 'Volume', 'Hp:', 'Lbs-', 'Acc+', 'Model', 'origin', 'Mpg+']
+[8, 304.0, 193, 4732, 18.5, 70, 1, 10]
+[8, 360, 215, 4615, 14, 70, 1, 10]
+[8, 307, 200, 4376, 15, 70, 1, 10]
+[8, 318, 210, 4382, 13.5, 70, 1, 10]
+[8, 429, 208, 4633, 11, 72, 1, 10]
+[8, 400, 150, 4997, 14, 73, 1, 10]
+[8, 350, 180, 3664, 11, 73, 1, 10]
+[8, 383, 180, 4955, 11.5, 71, 1, 10]
+[8, 350, 160, 4456, 13.5, 72, 1, 10]
+ SUCCESS!!
+
+Running eg_data
+{:at 3 :hi 5140 :isSorted False :lo 1613 :n 398 :name Lbs- :w -1}
+{:at 4 :hi 24.8 :isSorted False :lo 8 :n 398 :name Acc+ :w -1}
+{:at 7 :hi 50 :isSorted False :lo 10 :n 398 :name Mpg+ :w -1}
+ SUCCESS!!
+
+Running eg_num
 {:mid 51.0 :div 31.007751937984494}
  SUCCESS!!
 
-Running test_sym
+Running eg_stats
+xmid {'Clndrs': 4.0, 'Volume': 151.0, 'Model': 76.0, 'origin': 1.0}
+xdiv {'Clndrs': 1.5503875968992247, 'Volume': 100.7751937984496, 'Model': 3.875968992248062, 'origin': 1.3273558482394003}
+ymid {'Lbs-': 2807.0, 'Acc+': 15.5, 'Mpg+': 20.0}
+ydiv {'Lbs-': 886.8217054263565, 'Acc+': 2.7131782945736433, 'Mpg+': 7.751937984496124}
+ SUCCESS!!
+
+Running eg_sym
 {:mid a :div 1.378}
  SUCCESS!!
 
-Running test_the
-{:e nothing :d False :f ../data/sample.csv :h False :n 512 :s 10019 :S ,}
+Running eg_the
+{:eg ALL :dump False :file ./data/auto93.csv :help False :nums 512 :seed 10019 :separator ,}
  SUCCESS!!
-
-Ran a total of 4 tests 4 success(es) and 0 failure(s)
+ 

@@ -1,7 +1,7 @@
 from random import Random
 import traceback
 from args import The
-from constants import BIG_S_OPTION, E_OPTION, F_OPTION, N_OPTION, SMALL_S_OPTION
+from constants import BIG_S_OPTION, D_OPTION, E_OPTION, F_OPTION, N_OPTION, SMALL_S_OPTION
 from data import Data
 from fileutils import read_file
 from num import Num
@@ -30,7 +30,8 @@ class Example(object):
                 print("\033[92m {}\033[00m" .format("SUCCESS!!"))
                 successes += 1
             except Exception as e:
-                traceback.print_exc()
+                if self.test_the[D_OPTION] == True:
+                    traceback.print_exc()
                 if isinstance(e, AssertionError):
                     print("\033[91m {}\033[00m" .format("FAILED"))
                     failures += 1
@@ -43,7 +44,7 @@ class Example(object):
     def eg_num(self):
         num_test = Num()
         for each_num in range(1, 101):
-            num_test.add(each_num, self.test_the, self.rando)
+            num_test.add(each_num, self.test_the[N_OPTION], self.rando)
         median, st_dev = num_test.mid(), num_test.div()
 
         oo({"mid": median, "div": st_dev})
@@ -64,7 +65,7 @@ class Example(object):
         bignum_the = The().the
         bignum_the[N_OPTION] = 32
         for i in range(1, 1001):
-            num_test.add(i, bignum_the, self.rando)
+            num_test.add(i, bignum_the[N_OPTION], self.rando)
 
         oo(num_test.nums())
         assert 32 == len(num_test._has)
@@ -88,10 +89,22 @@ class Example(object):
     def eg_data(self):
         data_the = The().the
         data_the[F_OPTION] = "./data/auto93.csv"
-        d = Data(read_file(data_the[F_OPTION]), data_the[N_OPTION], data_the[BIG_S_OPTION])
+        d = Data(read_file(data_the[F_OPTION]), data_the[N_OPTION], data_the[BIG_S_OPTION], data_the[SMALL_S_OPTION])
         for col in d.cols.y:
             oo(col)
-        return True
+        assert True
+
+    def eg_stats(self):
+        data_the = The().the
+        data_the[F_OPTION] = "./data/auto93.csv"
+        d = Data(read_file(data_the[F_OPTION]), data_the[N_OPTION], data_the[BIG_S_OPTION], data_the[SMALL_S_OPTION])
+        div = lambda thing: thing.div()
+        mid = lambda thing: thing.mid()
+        print("xmid", f"{d.stats(2,d.cols.x,mid)}")
+        print("xdiv", f"{d.stats(3,d.cols.x,div)}")
+        print("ymid", f"{d.stats(2,d.cols.y,mid)}")
+        print("ydiv", f"{d.stats(3,d.cols.y,div)}")
+        assert True
 
 if __name__ == "__main__":
     testthe = The()

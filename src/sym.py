@@ -1,5 +1,7 @@
 import math
 
+from print import o
+
 
 class Sym:
   def __init__(self, c, s):
@@ -8,7 +10,10 @@ class Sym:
     self.name = s or ""
     self._has = {}
   
-  def add(self, v, nums = None):
+  def __repr__(self):
+    return o({"at": self.at, "n": self.n, "name": self.name})
+  
+  def add(self, v, nums = None, rand = None):
     if v == "?":
       return
     self.n += 1
