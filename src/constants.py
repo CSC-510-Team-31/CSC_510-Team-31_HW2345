@@ -7,7 +7,7 @@ SMALL_S_OPTION = "seed"
 BIG_S_OPTION = "separator"
 
 HELP_STRING = """
-CSV : summaried csv file
+CSV : summarized csv file
 (c) Fall 2022 CSC 510 Team 31 
 <ntgomes,tylerkcraine,AbhimanyuBellam,guptaabhishek785,vishalveerareddy> 
 MIT license

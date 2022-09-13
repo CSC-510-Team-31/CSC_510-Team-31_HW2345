@@ -1,11 +1,8 @@
 from random import Random
 import traceback
 from args import The
-from constants import BIG_S_OPTION, D_OPTION, E_OPTION, F_OPTION, N_OPTION, SMALL_S_OPTION
-from data import Data
-from fileutils import read_file
+from constants import D_OPTION, E_OPTION, N_OPTION, SMALL_S_OPTION
 from num import Num
-from parse import parser
 from print import oo
 from sym import Sym
 
@@ -73,38 +70,6 @@ class Example(object):
     def eg_the(self):
         self.params = The()
         oo(self.params.the)
-
-    def eg_csv(self):
-        csv_the = The().the
-        csv_the[F_OPTION] = "./data/auto93.csv"
-        n = 0
-        def inner_fun(row):
-            nonlocal n
-            n = n + 1
-            if n <= 10:
-                oo(row) 
-        parser(read_file(csv_the[F_OPTION]), inner_fun, csv_the[BIG_S_OPTION] )
-        assert True
-    
-    def eg_data(self):
-        data_the = The().the
-        data_the[F_OPTION] = "./data/auto93.csv"
-        d = Data(read_file(data_the[F_OPTION]), data_the[N_OPTION], data_the[BIG_S_OPTION], data_the[SMALL_S_OPTION])
-        for col in d.cols.y:
-            oo(col)
-        assert True
-
-    def eg_stats(self):
-        data_the = The().the
-        data_the[F_OPTION] = "./data/auto93.csv"
-        d = Data(read_file(data_the[F_OPTION]), data_the[N_OPTION], data_the[BIG_S_OPTION], data_the[SMALL_S_OPTION])
-        div = lambda thing: thing.div()
-        mid = lambda thing: thing.mid()
-        print("xmid", f"{d.stats(2,d.cols.x,mid)}")
-        print("xdiv", f"{d.stats(3,d.cols.x,div)}")
-        print("ymid", f"{d.stats(2,d.cols.y,mid)}")
-        print("ydiv", f"{d.stats(3,d.cols.y,div)}")
-        assert True
 
 if __name__ == "__main__":
     testthe = The()
