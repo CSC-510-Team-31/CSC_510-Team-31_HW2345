@@ -5,7 +5,7 @@
 <a href="https://github.com/CSC-510-Team-31/CSC_510-Team-31_HW2345/actions"><img src="https://github.com/CSC-510-Team-31/CSC_510-Team-31_HW2345/actions/workflows/csv-test.yml/badge.svg"></a>
 [![Coverage badge](https://raw.githubusercontent.com/CSC-510-Team-31/CSC_510-Team-31_HW2345/python-coverage-comment-action-data/badge.svg)](https://github.com/CSC-510-Team-31/CSC_510-Team-31_HW2345/tree/python-coverage-comment-action-data)
 <br/>
-This repo serves as a rewrite of Dr. Tim Menzies' [csv.lua](https://github.com/timm/lua/blob/main/src/csv.lua) implementation into Python. Apart from academic purposes, the goal is to showcase implementing a test frameworks from scratch, legacy refactorization, and learning more the nuances of LUA as it's translated to (roughly equivalent) Python code.
+This repo serves as a rewrite of Dr. Tim Menzies' [csv.lua](https://github.com/timm/lua/blob/main/src/csv.lua) implementation into Python. Apart from academic purposes, the goal is to showcase implementing a test frameworks from scratch, legacy refactorization, and learning more of the nuances of LUA as it's translated to (roughly equivalent) Python code.
 
 ## To Run
 Requires Python 3 and nothing else. You don't need to install anything from requirements.txt; that's purely for our GitHub Actions CI to pick up code coverage on new changes.
